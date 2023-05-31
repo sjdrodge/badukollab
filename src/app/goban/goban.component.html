@@ -1,0 +1,30 @@
+<div class="goban" role="grid">
+  <div *ngFor="let row of board" class="row" role="row">
+    <div
+      *ngFor="let cell of row"
+      class="cell"
+      role="cell"
+      tabindex="0"
+      (click)="blackify(cell)"
+      (keydown.b)="blackify(cell)"
+      (contextmenu)="whiteify(cell)"
+      (keydown.w)="whiteify(cell)"
+    >
+      <img
+        *ngIf="cell.color === IntersectionColor.Empty"
+        src="assets/empty_intersection.png"
+        alt="empty intersection"
+      />
+      <img
+        *ngIf="cell.color === IntersectionColor.Black"
+        src="assets/black_stone.png"
+        alt="black stone"
+      />
+      <img
+        *ngIf="cell.color === IntersectionColor.White"
+        src="assets/white_stone.png"
+        alt="white stone"
+      />
+    </div>
+  </div>
+</div>
